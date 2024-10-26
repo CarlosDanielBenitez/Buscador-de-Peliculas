@@ -1,15 +1,20 @@
-const searchButton = document.getElementById('searchBtn');
 const searchInput = document.getElementById('search');
 const resultsDiv = document.getElementById('results');
-const API_KEY = 'TU_API_KEY'; // Reemplaza con tu API Key de TMDb
+const API_KEY = 'd06dddbf562c97eff491aacc46ce43d8'; // Reemplaza con tu API Key de TMDb
 
-searchButton.addEventListener('click', async () => {
-    const query = searchInput.value;
+// Función para buscar películas
+async function searchMovies(query) {
+    if (!query) {
+        resultsDiv.innerHTML = ''; // Limpiar resultados si no hay consulta
+        return;
+    }
+
     const response = await fetch(`https://api.themoviedb.org/3/search/movie?api_key=${API_KEY}&query=${query}`);
     const data = await response.json();
     displayResults(data.results);
-});
+}
 
+// Función para mostrar los resultados
 function displayResults(movies) {
     resultsDiv.innerHTML = '';
     if (movies.length === 0) {
@@ -27,3 +32,9 @@ function displayResults(movies) {
         resultsDiv.appendChild(movieDiv);
     });
 }
+
+// Agregar el evento input para buscar en tiempo real
+searchInput.addEventListener('input', (event) => {
+    const query = event.target.value;
+    searchMovies(query);
+});

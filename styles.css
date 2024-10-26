@@ -1,17 +1,51 @@
+/* Reset básico */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box; /* Asegura que el padding y el border no afecten el tamaño total de los elementos */
+}
+
 body {
-    font-family: Arial, sans-serif;
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    background-color: #e9ecef; /* Fondo más suave */
+    color: #333; /* Color de texto */
+padding-top: 1rem;
+    line-height: 1.6; /* Espaciado entre líneas */
+    display: flex; /* Usamos flexbox para centrar */
+    justify-content: center; /* Centra horizontalmente */
+    align-items: center; /* Centra verticalmente */
+
+}
+
+.container {
+    max-width: 600px; /* Ancho máximo de la caja */
+    width: 100%; /* Ocupa el 100% del ancho disponible */
+    background: white; /* Fondo blanco para el contenedor */
+    border-radius: 10px; /* Bordes redondeados */
+    padding: 20px; /* Espaciado interno */
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2); /* Sombra más pronunciada */
+}
+
+h1 {
     text-align: center;
-    background-color: #f4f4f4;
+    font-size: 2.5rem; /* Aumenta el tamaño del encabezado */
+    margin-bottom: 20px; /* Espacio debajo del encabezado */
+    color: #007bff; /* Color azul para el título */
 }
 
-input {
-    padding: 10px;
-    width: 300px;
-    margin: 20px 0;
+#search {
+    width: 100%;
+    padding: 15px; /* Espaciado interno */
+    margin: 10px 0;
+    border: 2px solid #007bff; /* Bordes azules */
+    border-radius: 30px; /* Bordes redondeados */
+    font-size: 1rem; /* Tamaño de fuente */
+    transition: border-color 0.3s; /* Transición suave para el borde */
 }
 
-button {
-    padding: 10px 20px;
+#search:focus {
+    border-color: #0056b3; /* Color del borde al enfocarse */
+    outline: none; /* Sin contorno */
 }
 
 #results {
@@ -19,10 +53,38 @@ button {
 }
 
 .movie {
-    border: 1px solid #ccc;
-    padding: 10px;
-    margin: 10px;
-    background-color: #fff;
-    border-radius: 5px;
-    display: inline-block;
+    background: white;
+    border: 1px solid #ddd; /* Bordes más suaves */
+    margin: 15px 0;
+    padding: 20px;
+    border-radius: 10px; /* Bordes más redondeados */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra para dar profundidad */
+    transition: transform 0.3s; /* Transición suave para el hover */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    row-gap: 1rem;
+
+}
+
+.movie:hover {
+    transform: translateY(-5px); /* Efecto de elevación al pasar el mouse */
+}
+
+.movie img {
+   width: 30%;
+
+    border-radius: 5px; /* Bordes redondeados en las imágenes */
+}
+
+.movie h3 {
+    color: #333; /* Color del título de la película */
+    font-size: 1.5rem; /* Tamaño de fuente para el título */
+    margin-bottom: 10px; /* Espacio debajo del título */
+}
+
+.movie p {
+    font-size: 0.9rem; /* Tamaño de fuente para la descripción */
+    color: #555; /* Color gris para la descripción */
 }
